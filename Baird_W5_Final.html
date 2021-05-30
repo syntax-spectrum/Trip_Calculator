@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+            CIS213 Final PE
+            Author: Zachary Baird
+            Date: 4/3/2021
+        -->
+        <title>Final PE</title>
+        <script>
+            function myFunction() {
+            var tripdetails = {
+            tripName: document.getElementById("sname").value,
+            startingMileage: parseFloat(document.getElementById("stmil").value),
+            endingMileage: parseFloat(document.getElementById("enmil").value),
+            gasUsed: parseFloat(document.getElementById("gas").value),
+            totalMiles: 0,
+            fuleEconomy: 0
+            };
+            tripdetails.totalMiles = tripdetails.endingMileage - tripdetails.startingMileage;
+            tripdetails.fuleEconomy = tripdetails.totalMiles/tripdetails.gasUsed;
+            console.log(tripdetails);
+
+            const qs = Object.keys(tripdetails)
+            .map(key => `${key}=${tripdetails[key]}`)
+            .join('&');
+            window.open(`page2.html?${qs}`);
+            window.location.href = `page2.html?${qs}`;
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Zachary Baird, Trip Stats Calculator</h1>
+        </header>
+        <form id = "mileage">
+            <label for="sname">Trip Name:</label>
+            <input type="text" id="sname" name="sname"><br><br>
+            <label for="stmil">Starting Mileage:</label>
+            <input type="text" id="stmil" name="stmil"><br><br>
+            <label for="enmil">Ending Mileage:</label>
+            <input type="text" id="enmil" name="enmil"><br><br>
+            <label for="gas">Gallons of gas used:</label>
+            <input type="text" id="gas" name="gas"><br><br><br><br>
+            <input type="button" value="Get Trip Summary" onclick="myFunction()">
+            </form>
+    </body>
+</html>

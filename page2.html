@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        CIS213 Final PE
+        Author: Zachary Baird
+        Date: 4/3/2021
+    -->
+    <title>Trip Summary</title>
+    </head>
+    <body>
+        <header>
+            <h1>Zachary Baird, Trip Summary</h1>
+        </header>
+        <script>
+            var queryString = decodeURIComponent(window.location.search);
+            queryString = queryString.substring(1);
+            var queries = queryString.split("&");
+            document.write("Trip Name: "+ queries[0].substring(queries[0].indexOf("=")+1) + "<br>"+"<br>");
+            document.write("Total Miles Traveled: "+ queries[4].substring(queries[4].indexOf("=")+1) + "<br>"+"<br>");
+            document.write("Gallons of Gas Consumed: "+ queries[3].substring(queries[3].indexOf("=")+1) + "<br>"+"<br>");
+            document.write("Fuel Economy (MPG) for Trip: "+ queries[5].substring(queries[5].indexOf("=")+1) + "<br>"+"<br>");
+        </script>
+    </body>
+</html>
